@@ -1,0 +1,93 @@
+#site-header {
+  background: $white;
+  display: flex;
+
+  #banner-image {
+    width: 200px;
+
+    &::after {
+      width: 10px;
+      opacity: 0.5;
+      background: $grey-lighter;
+      content: '';
+      display: block;
+      position: absolute;
+      right: -5px;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+    }
+  }
+
+  #banner-content-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+
+    .code-floater {
+        background-color: $grey-lighter;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+  }
+
+  #banner-title {
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 5;
+    background-color: rgba(255,255,255,0.9);
+  }
+
+  #banner-tabs {
+    z-index: 5;
+  }
+
+  .tabs {
+    background: $green;
+
+    a,
+    ul {
+      border-bottom: none;
+    }
+
+    a:hover {
+      color: $grey-darker;
+      background: $orange;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 4px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        animation: pulse 2s ease-in-out;
+      }
+    }
+
+    a.tab-inverse:hover {
+      color: $orange;
+      background: $grey-darker;
+    }
+
+    .fab {
+      font-size: 1.5em;
+    }
+
+    .right {
+      justify-content: flex-end;
+    }
+  }
+}
