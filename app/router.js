@@ -8,8 +8,9 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('admin');
-  this.route('front-end', { path: '/' }, function() {
-    this.route('post', { path: '/:post_id' });
+
+  this.route('index', { path: '/' }, function() {
+    this.route('post', { path: '/:post_id'});
   });
 });
 

@@ -24,8 +24,13 @@ module.exports = function(environment) {
     },
 
     googleFonts: [
-      'Share Tech Mono'
-    ]
+      'Share Tech Mono',
+      'Ubuntu',
+    ],
+
+    disqus: {
+      shortname: 'wetzelrice'
+    }
   };
 
   if (environment === 'development') {

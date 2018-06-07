@@ -1,0 +1,27 @@
+.post {
+  background: $white;
+  margin: 15px 0;
+  padding: 10px;
+
+  header {
+    border-bottom: 1px solid $grey-lighter;
+
+    .post-title {
+      font-size: xx-large;
+      font-weight: bold;
+    }
+
+    .post-date {
+      font-size: x-large;
+      font-style: italic;
+    }
+
+    a {
+      color: $grey-dark;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}

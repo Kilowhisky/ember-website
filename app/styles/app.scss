@@ -5,6 +5,7 @@
 html, body, #root {
   height: 100%;
   overflow-y: auto;
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -18,5 +19,18 @@ body {
 
   > main {
     flex-grow: 1;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  small {
+    display: inline;
+    font-size: small;
+    padding-left: 1em;
   }
 }

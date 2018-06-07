@@ -1,6 +1,6 @@
 <header id="site-header" class="container">
   <figure id="banner-image" class="image">
-    <img src="images/profile.jpg"/>
+    {{#link-to 'index'}}<img src="images/profile.jpg"/>{{/link-to}}
   </figure>
   <div id="banner-content-container">
     {{code-floater}}
@@ -8,24 +8,6 @@
       <h1 class="title is-1">Christopher Rice</h1>
       <h2 class="subtitle">Front End | Back End | High Transaction DBA | Full Stack Developer</h2>
     </div>
-    <div id="banner-tabs" class="tabs">
-      <ul>
-        <li>
-          {{#link-to 'front-end'}}Blog{{/link-to}}
-        </li>
-        <li>
-        </li>
-        <li>
-        </li>
-      </ul>
-      <ul class="right">
-        <li>
-          <a href="//linkedin.com/in/christopherscottwetzelrice/" class="tab-inverse tab-fa">{{fa-icon 'linkedin'}}</a>
-        </li>
-        <li>
-          <a href="//github.com/kilowhisky" class="tab-inverse tab-fa">{{fa-icon 'github-square'}}</a>
-        </li>
-      </ul>
-    </div>
+    {{yield}}
   </div>
 </header>
