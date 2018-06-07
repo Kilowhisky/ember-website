@@ -10,7 +10,7 @@ export default Component.extend({
   tagName: 'canvas',
   classNames: ['code-floater'],
 
-  count: 1200,
+  count: 1000,
   factor: 10,
   stage: null,
 
@@ -42,7 +42,7 @@ export default Component.extend({
 			this.stage.addChild(text);
 		}
 		// start the tick and point it at the window so we can do some work before updating the stage:
-		createjs.Ticker.timingMode = createjs.Ticker.RAF;
+		createjs.Ticker.framerate = 15;
 		createjs.Ticker.addEventListener("tick", bind(this,this.tick));
 
     // Force our layout to update after painting the div has completed
@@ -53,7 +53,7 @@ export default Component.extend({
     const canvas = this.element;
 		var w = canvas.width + this.factor * 2;
 		var h = canvas.height + this.factor * 2;
-		var l = this.stage.numChildren - 1;
+		var l = this.stage.numChildren;
 		// iterate through all the children and move them according to their velocity:
 		for (var i = 1; i < l; i++) {
 			const text = this.stage.getChildAt(i);
