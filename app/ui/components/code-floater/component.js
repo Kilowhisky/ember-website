@@ -34,7 +34,7 @@ export default Component.extend({
 
     // create a large number of slightly complex vector shapes, and give them random positions and velocities:
 		for (var i = 0; i < this.count; i++) {
-      const text = new createjs.Text(i % 2 ? '0' : '1', "1.5rem 'Share Tech Mono'", 'black');
+      const text = new createjs.Text(i % 2 ? '0' : '1', "16pt 'Share Tech Mono'", 'black');
 			text.x = Math.random() * canvas.width;
 			text.y = Math.random() * canvas.height;
 			text.velX = Math.random();
