@@ -1,5 +1,22 @@
 @import "bulma";            // Import bulma base
 @import "variables";        // Import our variables that may have overrides
-@import "sections/app";     // Import sections
-@import "sections/footer";
-@import "sections/header";
+@import "ui";               // Import from our pods
+
+html, body, #root {
+  height: 100%;
+  overflow-y: auto;
+}
+
+body {
+  background-image: url('../images/background.jpg');
+}
+
+.ember-application {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > main {
+    flex-grow: 1;
+  }
+}
