@@ -1,25 +1,5 @@
-{{#site-header}}
-  <nav id="banner-tabs" class="tabs">
-    <ul>
-      <li>
-        {{#link-to 'index'}}Blog{{/link-to}}
-      </li>
-      <li>
-      </li>
-      <li>
-      </li>
-    </ul>
-    <ul class="right">
-      <li>
-        <a href="//linkedin.com/in/christopherscottwetzelrice/" class="tab-inverse tab-fa">{{fa-icon 'linkedin'}}</a>
-      </li>
-      <li>
-        <a href="//github.com/kilowhisky" class="tab-inverse tab-fa">{{fa-icon 'github-square'}}</a>
-      </li>
-    </ul>
-  </nav>
-{{/site-header}}
-<main>
-  {{outlet}}
-</main>
-{{site-footer}}
+<div class="container">
+  {{#each model as |post|}}
+    {{post-summary post=post}}
+  {{/each}}
+</div>
