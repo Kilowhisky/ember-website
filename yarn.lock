@@ -2758,6 +2758,14 @@ ember-compatibility-helpers@^1.0.0-beta.2:
     ember-cli-version-checker "^2.1.1"
     semver "^5.4.1"
 
+ember-cp-validations@^4.0.0-beta.1:
+  version "4.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/ember-cp-validations/-/ember-cp-validations-4.0.0-beta.1.tgz#37bde4419e19ff8b26ee96afc611793fe54f4eaf"
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-require-module "^0.3.0"
+    ember-validators "^1.2.0"
+
 ember-data@~3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.1.1.tgz#8c17c97a4932b0a0a405cc3e38c43140880366d2"
@@ -2833,6 +2841,12 @@ ember-font-awesome@^4.0.0-rc.4:
     fs-readdir-recursive "^1.1.0"
     postcss "^6.0.14"
     sync-disk-cache "^1.3.2"
+
+ember-g-recaptcha@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/ember-g-recaptcha/-/ember-g-recaptcha-0.9.0.tgz#b1ab28bf736a70b1dda98275656eb8fa5b73d369"
+  dependencies:
+    ember-cli-babel "^6.6.0"
 
 ember-get-config@^0.2.3:
   version "0.2.4"
@@ -2984,6 +2998,13 @@ ember-try@^0.2.23:
     rimraf "^2.3.2"
     rsvp "^3.0.17"
     semver "^5.1.0"
+
+ember-validators@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ember-validators/-/ember-validators-1.2.0.tgz#b4bc9aeaf97921d80c41b7dc21acca288d1216ae"
+  dependencies:
+    ember-cli-babel "^6.9.2"
+    ember-require-module "^0.2.0"
 
 ember-weakmap@^3.0.0:
   version "3.2.0"

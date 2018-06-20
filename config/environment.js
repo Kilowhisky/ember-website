@@ -36,6 +36,10 @@ module.exports = function(environment) {
     tinyMCE: {
       load: false
     },
+
+    gReCaptcha: {
+      jsUrl: 'https://www.google.com/recaptcha/api.js?render=explicit', // default
+      siteKey: '6LeYpl8UAAAAACnhpBunz3FSI0eSuZNqdEKV0K8_'
     }
   };
 

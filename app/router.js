@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('post', { path: '/post/:post_id' });
   });
   this.route('post', { path: '/:post_id'});
+  this.route('contact');
 });
 
 export default Router;
