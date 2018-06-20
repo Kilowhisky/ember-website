@@ -1,0 +1,13 @@
+<form class="container">
+  <section class="post">
+    <header class="level">
+      {{input class="input is-large" placeholder="Post Title" value=model.title}}
+    </header>
+    <div class="content">
+      {{tinymce-editor  value=model.body onValueChanged=(action (mut model.body))}}
+    </div>
+    <button class="button is-large is-primary" {{action 'save' model}}>
+      {{fa-icon "save"}}&nbsp;Save
+    </button>
+  </section>
+</form>

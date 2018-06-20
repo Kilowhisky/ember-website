@@ -30,6 +30,12 @@ module.exports = function(environment) {
 
     disqus: {
       shortname: 'wetzelrice'
+    },
+
+    // Don't load the tinyMCE editor as we don't need it unless we are editing.
+    tinyMCE: {
+      load: false
+    },
     }
   };
 

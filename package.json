@@ -52,5 +52,7 @@
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ember-cli-tinymce": "^0.3.2"
+  }
 }
