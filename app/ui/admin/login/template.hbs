@@ -1,0 +1,16 @@
+<form class="container">
+  <section class="post">
+    <h1 class="title">Login To Admin Section</h1>
+    <div class="field">
+      {{input class="input" placeholder="Username" value=username}}
+      {{input-error errors=validations.attrs.username.messages}}
+    </div>
+    <div class="field">
+      {{input class="input" placeholder="Password" value=password type="password"}}
+      {{input-error errors=validations.attrs.password.messages}}
+    </div>
+    <button class="button is-primary" disabled={{validations.isInvalid}} {{action 'login' (hash username=username password=password)}}>
+      {{fa-icon "save"}}&nbsp;Login
+    </button>
+  </section>
+</form>
