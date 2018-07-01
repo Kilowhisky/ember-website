@@ -1,15 +1,3 @@
 <div class="container">
-  <section class="post">
-    <header class="level">
-      <h1 class="post-title">
-        {{model.title}}
-        {{#link-to 'admin.post' model}}{{fa-icon 'edit'}}{{/link-to}}
-      </h1>
-      <div class="level-right post-date">{{display-date model.createdAt}}</div>
-    </header>
-    <div class="content">
-      {{model.content}}
-    </div>
-    {{disqus-comments identifier=model.title}}
-  </section>
+  {{show-post post=model showComments=true}}
 </div>

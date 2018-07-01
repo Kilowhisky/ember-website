@@ -16,6 +16,15 @@
       font-style: italic;
     }
 
+    .post-button {
+      margin: 0 15px;
+    }
+
+    .post-comments-count {
+      align-self: flex-end;
+      padding-bottom: 0.5em;
+    }
+
     a {
       color: $grey-dark;
 
