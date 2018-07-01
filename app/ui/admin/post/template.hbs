@@ -4,10 +4,15 @@
       {{input class="input is-large" placeholder="Post Title" value=model.title}}
     </header>
     <div class="content">
-      {{tinymce-editor  value=model.body onValueChanged=(action (mut model.body))}}
+      {{tinymce-editor  value=model.content onValueChanged=(action (mut model.content))}}
     </div>
     <button class="button is-large is-primary" {{action 'save' model}}>
       {{fa-icon "save"}}&nbsp;Save
     </button>
+    {{#if model.id}}
+      <button class="button is-large is-danger" {{action 'delete' model}}>
+        {{fa-icon 'trash'}}&nbsp;Delete
+      </button>
+    {{/if}}
   </section>
 </form>

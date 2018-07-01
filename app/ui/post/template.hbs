@@ -5,10 +5,10 @@
         {{model.title}}
         {{#link-to 'admin.post' model}}{{fa-icon 'edit'}}{{/link-to}}
       </h1>
-      <div class="level-right post-date">{{model.created}}</div>
+      <div class="level-right post-date">{{display-date model.createdAt}}</div>
     </header>
     <div class="content">
-      {{model.body}}
+      {{model.content}}
     </div>
     {{disqus-comments identifier=model.title}}
   </section>

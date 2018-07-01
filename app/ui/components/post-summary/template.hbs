@@ -2,11 +2,11 @@
   <header class="level">
     <h1 class="level-left post-title">
       {{#link-to 'post' post}}{{post.title}}{{/link-to}}
-      <small>{{disqus-comment-count identifier=post.title}}</small>
+      <small>{{disqus-comment-count identifier=post.title}} comments</small>
     </h1>
-    <div class="level-right post-date">{{post.created}}</div>
+    <div class="level-right post-date">{{display-date post.createdAt}}</div>
   </header>
   <div class="content">
-    {{post.body}}
+    {{post.content}}
   </div>
 </section>
