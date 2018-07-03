@@ -34,3 +34,13 @@ h6 {
     padding-left: 1em;
   }
 }
+
+main > .container > section {
+  background: $white;
+  margin: 15px 0;
+  padding: 10px;
+
+  & > .hero {
+    margin: -10px -10px 10px -10px;;
+  }
+}

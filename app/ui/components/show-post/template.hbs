@@ -1,19 +1,17 @@
-<section class="post post-summary">
-  <header class="level">
-    <h1 class="level-left post-title">
+<header class="level">
+  <h1 class="level-left post-title">
       {{#link-to 'post' post}}{{post.title}}{{/link-to}}
       <small class="post-comments-count">{{disqus-comment-count identifier=post.title}}</small>
     </h1>
-    <div class="level-right post-date">
-      {{#link-to 'admin.post' post class="post-button"}}{{fa-icon 'edit'}}{{/link-to}}
-      {{display-date post.createdAt}}
-    </div>
-  </header>
-  <div class="content">
-    {{{post.content}}}
+  <div class="level-right post-date">
+    {{#link-to 'admin.post' post class="post-button" }}{{fa-icon 'edit'}}{{/link-to}}
+    {{display-date post.createdAt}}
   </div>
-  {{#if showComments}}
-    {{disqus-comments identifier=post.title}}
-  {{/if}}
-  {{yield}}
-</section>
+</header>
+<div class="content">
+  {{{post.content}}}
+</div>
+{{#if showComments}}
+  {{disqus-comments identifier=post.title}}
+{{/if}}
+{{yield}}
