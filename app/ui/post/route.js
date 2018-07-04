@@ -5,5 +5,10 @@ export default Route.extend({
   api: service(),
   model(params) {
     return this.api.getPost(params.post_id);
+  },
+  actions: {
+    error() {
+      this.transitionTo('not-found');
+    }
   }
 });
