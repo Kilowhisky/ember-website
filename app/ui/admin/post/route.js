@@ -5,6 +5,7 @@ import { hash } from 'rsvp';
 
 
 export default Route.extend({
+  notifications: service('notification-messages'),
   api: service(),
   beforeModel() {
     this._super(...arguments);
@@ -22,7 +23,8 @@ export default Route.extend({
   actions: {
     save(model) {
       this.api.savePost(model.post, model.isNew)
-        .then(p => this.transitionTo('post', p));
+        .then(p => this.transitionTo('post', p))
+        .catch(e => this.notifications.error(e.message));
     },
     delete(model) {
       if (confirm('Are you sure?')) {
