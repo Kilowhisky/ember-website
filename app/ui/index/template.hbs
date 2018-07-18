@@ -1,5 +1,10 @@
 <div class="container">
   {{#each model as |post|}}
     {{show-post post=post}}
+  {{else}}
+    <section>
+      <h1 class="title is-1">Uh Oh!</h1>
+      <h3 class="subtitle is-3">No Posts Found</h3>
+    </section>
   {{/each}}
 </div>
