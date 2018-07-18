@@ -4,7 +4,7 @@
       <small class="post-comments-count">{{disqus-comment-count identifier=post.title}}</small>
     </h1>
   <div class="level-right post-date">
-    {{#link-to 'admin.post' post class="post-button" }}{{fa-icon 'edit'}}{{/link-to}}
+    {{#link-to 'admin.post' post.id class="post-button" }}{{fa-icon 'edit'}}{{/link-to}}
     {{display-date post.createdAt}}
   </div>
 </header>

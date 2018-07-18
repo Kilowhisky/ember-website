@@ -1,9 +1,11 @@
 <div class="container">
   <section class="post">
     <header class="level">
-      <h1 class="post-title">About Me</h1></header>
+      <h1 class="post-title">{{model.title}}</h1>
+      {{#link-to 'admin.post' model.id}} {{fa-icon 'edit'}}{{/link-to}}
+    </header>
       <p class="content">
-        {{{model.blurb}}}
+        {{{model.content}}}
       </p>
     <div class="content">
       <form {{action 'contact' (hash name=name email=email subject=subject message=message captcha=captchaResolved) on='submit'}}>

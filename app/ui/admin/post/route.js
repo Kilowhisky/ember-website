@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import $ from 'jquery';
-import EmberObject from '@ember/object';
 import { inject as service } from '@ember/service';
+import { hash } from 'rsvp';
 
 
 export default Route.extend({
@@ -13,20 +13,20 @@ export default Route.extend({
     }
   },
   model(params) {
-    if (params.post_id == 'new') {
-      return EmberObject.create();
-    } else {
-      return this.api.getPost(params.post_id);
-    }
+    const isNew = params.post_id == 'new';
+    return hash({
+      isNew,
+      post: isNew ? this.api.createLocalPost({ category: 'blog' }) : this.api.getPost(params.post_id)
+    });
   },
   actions: {
     save(model) {
-      this.api.savePost(model.id, model)
+      this.api.savePost(model.post, model.isNew)
         .then(p => this.transitionTo('post', p));
     },
     delete(model) {
       if (confirm('Are you sure?')) {
-        this.api.deletePost(model.id)
+        this.api.deletePost(model.post.id)
           .then(() => this.transitionTo('index'));
       }
     }

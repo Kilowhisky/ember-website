@@ -1,10 +1,17 @@
 import AjaxService from 'ember-ajax/services/ajax';
 import EmberObject from '@ember/object';
+import { merge } from '@ember/polyfills';
 
 
 export default AjaxService.extend({
-  host: 'http://localhost:3000',
+  host: 'http://localhost:5000',
   namespace: '/api',
+
+  createLocalPost(args = {}) {
+    return merge({
+      createdAt: new Date()
+    }, args);
+  },
 
   getPosts(params) {
     return this.request('posts', { data: params })
@@ -16,19 +23,20 @@ export default AjaxService.extend({
       .then(this.convertPost);
   },
 
-  savePost(id, post) {
+  savePost({ id, title, content, createdAt, category }, isNew = false) {
     const args = {
       data: {
-        id: post.id,
-        title: post.title,
-        content: post.content,
-        createdAt: post.createdAt || new Date()
+        id: id.trim(),
+        title,
+        content,
+        category,
+        createdAt: (createdAt || new Date()).toISOString()
       }
     };
-    if (id) {
-      return this.put(`posts/${id}`, args).then(this.convertPost)
-    } else {
+    if (isNew) {
       return this.post('posts', args).then(this.convertPost);
+    } else {
+      return this.put(`posts/${id}`, args).then(this.convertPost);
     }
   },
 
@@ -36,13 +44,13 @@ export default AjaxService.extend({
     return this.delete(`posts/${id}`);
   },
 
-  convertPost({ id, title, content, createdAt }) {
+  convertPost({ id, title, content, createdAt, category }) {
     return EmberObject.create({
       id,
       title,
       content,
+      category,
       createdAt: new Date(createdAt)
     });
   }
-
 });

@@ -1,18 +1,21 @@
 <form class="container">
   <section class="post">
     <header class="level">
-      {{input class="input is-large" placeholder="Post Title" value=model.title}}
+      {{input class="input is-large" placeholder="Post Title" value=model.post.title}}
     </header>
     <div class="content">
-      {{tinymce-editor  value=model.content onValueChanged=(action (mut model.content))}}
+      {{input class="input" placeholder="Unique URL slug (used as identifier)" value=model.post.id}}
+    </div>
+    <div class="content">
+      {{tinymce-editor  value=model.post.content onValueChanged=(action (mut model.post.content))}}
     </div>
     <button class="button is-large is-primary" {{action 'save' model}}>
       {{fa-icon "save"}}&nbsp;Save
     </button>
-    {{#if model.id}}
+    {{#unless model.isNew}}
       <button class="button is-large is-danger" {{action 'delete' model}}>
         {{fa-icon 'trash'}}&nbsp;Delete
       </button>
-    {{/if}}
+    {{/unless}}
   </section>
 </form>
