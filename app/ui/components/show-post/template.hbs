@@ -1,7 +1,7 @@
 <header class="level">
   <h1 class="level-left post-title">
       {{#link-to 'post' post}}{{post.title}}{{/link-to}}
-      <small class="post-comments-count">{{disqus-comment-count identifier=post.title}}</small>
+      <small class="post-comments-count">{{disqus-comment-count identifier=post.id}}</small>
     </h1>
   <div class="level-right post-date">
     {{#link-to 'admin.post' post.id class="post-button" }}{{fa-icon 'edit'}}{{/link-to}}
@@ -12,6 +12,6 @@
   {{{post.content}}}
 </div>
 {{#if showComments}}
-  {{disqus-comments identifier=post.title}}
+  {{disqus-comments identifier=post.id}}
 {{/if}}
 {{yield}}
