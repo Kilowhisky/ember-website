@@ -1,15 +1,15 @@
-<form class="container">
+<form class="container" {{action 'save' model on='submit'}}>
   <section class="post">
     <header class="level">
-      {{input class="input is-large" placeholder="Post Title" value=model.post.title}}
+      {{input class="input is-large" placeholder="Post Title" value=model.post.title required=true}}
     </header>
     <div class="content">
-      {{input class="input" placeholder="Unique URL slug (used as identifier)" value=model.post.id}}
+      {{input class="input" placeholder="Unique URL slug (used as identifier)" value=model.post.id required=true}}
     </div>
     <div class="content">
       {{tinymce-editor  value=model.post.content onValueChanged=(action (mut model.post.content))}}
     </div>
-    <button class="button is-large is-primary" {{action 'save' model}}>
+    <button type="submit" class="button is-large is-primary">
       {{fa-icon "save"}}&nbsp;Save
     </button>
     {{#unless model.isNew}}
