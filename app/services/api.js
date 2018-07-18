@@ -1,11 +1,12 @@
 import AjaxService from 'ember-ajax/services/ajax';
 import EmberObject from '@ember/object';
 import { merge } from '@ember/polyfills';
+import config from 'website/config/environment';
 
 
 export default AjaxService.extend({
-  host: 'http://localhost:5000',
-  namespace: '/api',
+  host: config.API.host,
+  namespace: config.API.namespace,
 
   createLocalPost(args = {}) {
     return merge({

@@ -23,6 +23,10 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    API: {
+      host: 'http://localhost:5000',
+      namespace: '/api'
+    },
     googleFonts: [
       'Share Tech Mono',
       'Ubuntu',
