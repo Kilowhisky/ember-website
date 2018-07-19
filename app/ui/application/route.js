@@ -1,13 +1,12 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import ApplicationRouteMixin from 'ember-simple-auth-auth0/mixins/application-route-mixin';
 
-export default Route.extend({
+export default Route.extend(ApplicationRouteMixin, {
   session: service(),
-  notifications: service('notification-messages'),
   actions: {
     logout() {
       this.session.invalidate();
-      this.notifications.success('Logged Out', { autoClear: true });
     }
   }
 });
