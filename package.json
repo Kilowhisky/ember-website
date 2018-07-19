@@ -47,6 +47,8 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resize": "^0.0.17",
     "ember-resolver": "^4.0.0",
+    "ember-simple-auth": "^1.6.0",
+    "ember-simple-auth-auth0": "https://github.com/auth0-community/ember-simple-auth-auth0.git#develop",
     "ember-source": "~3.3.0",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",

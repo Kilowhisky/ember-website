@@ -27,6 +27,17 @@ module.exports = function(environment) {
       host: 'http://localhost:5000',
       namespace: '/api'
     },
+
+    'ember-simple-auth': {
+      authenticationRoute: 'login',
+      auth0: {
+        clientID: 'DPtw6Wy0NrKW63PYJ09lHtRO0bLC4QZH',
+        domain: 'wetzelrice.auth0.com',
+        logoutReturnToURL: '/login',
+        enableImpersonation: false
+      }
+    },
+
     googleFonts: [
       'Share Tech Mono',
       'Ubuntu',

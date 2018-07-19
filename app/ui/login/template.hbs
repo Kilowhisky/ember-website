@@ -1,0 +1,12 @@
+<div class="container">
+  <section class="post">
+    {{#if session.isAuthenticated}}
+      <h1 class="title">You are already logged in... get to building shit</h1>
+      {{#link-to 'index' class="button is-success"}}Go Home{{/link-to}}
+    {{else}}
+      <h1 class="title">Login to the application</h1>
+      <h3 class="subtitle">Come on.... you know you wanna post some cool shit</h3>
+      <button class="button is-primary is-large is-fullwidth" {{action 'login'}}>Login</button>
+    {{/if}}
+  </section>
+</div>

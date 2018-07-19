@@ -18,6 +18,9 @@
       <li>
         <a href="//github.com/kilowhisky" class="tab-inverse tab-fa">{{fa-icon 'github-square'}}</a>
       </li>
+      {{#if session.isAuthenticated}}
+        <li><a href="#" class="tab-inverse tab-fa" {{action 'logout'}} title="Log Out">{{fa-icon 'power-off'}}</a></li>
+      {{/if}}
     </ul>
   </nav>
 {{/site-header}}
