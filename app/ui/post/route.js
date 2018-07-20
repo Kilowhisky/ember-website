@@ -8,7 +8,7 @@ export default Route.extend({
   },
   actions: {
     error() {
-      this.transitionTo('not-found');
+      this.transitionTo('error');
     }
   }
 });
