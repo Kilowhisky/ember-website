@@ -12,7 +12,6 @@ export default AjaxService.extend({
   namespace: config.API.namespace,
   headers: computed('session.isAuthenticated', function() {
     if (this.session.isAuthenticated) {
-      console.log(this.session.data.authenticated);
       const data = this.session.data.authenticated;
       return {
         Authorization: `${data.tokenType} ${data.accessToken}`

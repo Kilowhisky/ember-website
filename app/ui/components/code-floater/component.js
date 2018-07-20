@@ -13,6 +13,7 @@ export default Component.extend({
   count: 1000,
   factor: 10,
   stage: null,
+  boundTick: null, // Ember bound method handler so it can be unattached later
 
   init(){
     this._super(...arguments);
@@ -42,11 +43,17 @@ export default Component.extend({
 			this.stage.addChild(text);
 		}
 		// start the tick and point it at the window so we can do some work before updating the stage:
-		createjs.Ticker.framerate = 15;
-		createjs.Ticker.addEventListener("tick", bind(this,this.tick));
+    this.boundTick = bind(this,this.tick);
+    createjs.Ticker.framerate = 15;
+		createjs.Ticker.addEventListener("tick", this.boundTick);
 
     // Force our layout to update after painting the div has completed
     next(this, () => this.updateSize());
+  },
+
+  willDestroyElement(){
+    createjs.Ticker.removeEventListener("tick", this.boundTick);
+    this.boundTick = null;
   },
 
   tick(event) {
