@@ -31,6 +31,7 @@ module.exports = function(environment) {
     'ember-simple-auth': {
       authenticationRoute: 'login',
       auth0: {
+        audience: 'https://wetzelrice.auth0.com/api/v2/',
         clientID: 'DPtw6Wy0NrKW63PYJ09lHtRO0bLC4QZH',
         domain: 'wetzelrice.auth0.com',
         logoutReturnToURL: '/login',

@@ -2,11 +2,24 @@ import AjaxService from 'ember-ajax/services/ajax';
 import EmberObject from '@ember/object';
 import { merge } from '@ember/polyfills';
 import config from 'website/config/environment';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 
 
 export default AjaxService.extend({
+  session: service(),
   host: config.API.host,
   namespace: config.API.namespace,
+  headers: computed('session.isAuthenticated', function() {
+    if (this.session.isAuthenticated) {
+      console.log(this.session.data.authenticated);
+      const data = this.session.data.authenticated;
+      return {
+        Authorization: `${data.tokenType} ${data.accessToken}`
+      }
+    }
+    return {};
+  }),
 
   createLocalPost(args = {}) {
     return merge({
