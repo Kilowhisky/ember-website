@@ -56,6 +56,15 @@ module.exports = function(environment) {
     gReCaptcha: {
       jsUrl: 'https://www.google.com/recaptcha/api.js?render=explicit', // default
       siteKey: '6LeYpl8UAAAAACnhpBunz3FSI0eSuZNqdEKV0K8_'
+    },
+
+    contentSecurityPolicy: {
+      'font-src': "'self' data: https://*.auth0.com fonts.gstatic.com cdn.tinymce.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com cdn.tinymce.com c.disquscdn.com",
+      'script-src': "'self' 'unsafe-eval' https://*.auth0.com code.createjs.com *.google.com www.gstatic.com cdn.tinymce.com *.disqus.com disqus.com c.disquscdn.com",
+      'img-src': '*',
+      'connect-src': "'self' http://localhost:* https://wetzelrice.auth0.com",
+      'default-src': "www.google.com disqus.com"
     }
   };
 
