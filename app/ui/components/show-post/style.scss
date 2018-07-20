@@ -1,15 +1,32 @@
 .post {
   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid $grey-lighter;
 
     .post-title {
       font-size: xx-large;
       font-weight: bold;
+      @media screen and (max-width: $tablet) {
+        font-size: large;
+
+        .post-comments-count {
+          display: none;
+        }
+      }
     }
 
     .post-date {
       font-size: x-large;
       font-style: italic;
+      @media screen and (max-width: $tablet) {
+        font-size: medium;
+
+        .disqus-comment-count {
+          display: none;
+        }
+      }
     }
 
     .post-button {

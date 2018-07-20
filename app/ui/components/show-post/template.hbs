@@ -1,10 +1,12 @@
-<header class="level">
-  <h1 class="level-left post-title">
+<header>
+  <h1 class="post-title">
       {{#link-to 'post' post}}{{post.title}}{{/link-to}}
       <small class="post-comments-count">{{disqus-comment-count identifier=post.id}}</small>
     </h1>
-  <div class="level-right post-date">
-    {{#link-to 'admin.post' post.id class="post-button" }}{{fa-icon 'edit'}}{{/link-to}}
+  <div class="post-date">
+    {{#if session.isAuthenticated}}
+      {{#link-to 'admin.post' post.id class="post-button" }}{{fa-icon 'edit'}}{{/link-to}}
+    {{/if}}
     {{display-date post.createdAt}}
   </div>
 </header>
