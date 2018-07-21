@@ -24,7 +24,7 @@ module.exports = function(environment) {
     },
 
     API: {
-      host: 'http://localhost:5000',
+      host: '',
       namespace: '/api'
     },
 
