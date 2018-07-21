@@ -26,7 +26,8 @@ export default AjaxService.extend({
 
   createLocalPost(args = {}) {
     return merge({
-      createdAt: new Date()
+      createdAt: new Date(),
+      allowComments: true
     }, args);
   },
 
@@ -40,13 +41,14 @@ export default AjaxService.extend({
       .then(this.convertPost);
   },
 
-  savePost({ id, title, content, createdAt, category }, isNew = false) {
+  savePost({ id, title, content, createdAt, category, allowComments }, isNew = false) {
     const args = {
       data: {
         id: id.trim(),
         title,
         content,
         category,
+        allowComments,
         createdAt: (createdAt || new Date()).toISOString()
       }
     };
@@ -61,12 +63,13 @@ export default AjaxService.extend({
     return this.delete(`posts/${id}`);
   },
 
-  convertPost({ id, title, content, createdAt, category }) {
+  convertPost({ id, title, content, createdAt, category, allowComments }) {
     return EmberObject.create({
       id,
       title,
       content,
       category,
+      allowComments,
       createdAt: new Date(createdAt)
     });
   }

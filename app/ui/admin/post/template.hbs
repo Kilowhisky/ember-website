@@ -9,6 +9,9 @@
     <div class="content">
       {{input class="input" placeholder="Unique URL slug (used as identifier)" value=model.post.id required=true}}
     </div>
+    <label class="checkbox">
+      {{input type="checkbox" checked=model.post.allowComments}} Allow Comments
+    </label>
     <div class="content">
       {{tinymce-editor  value=model.post.content onValueChanged=(action (mut model.post.content))}}
     </div>

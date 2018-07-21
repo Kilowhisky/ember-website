@@ -1,7 +1,9 @@
 <header>
   <h1 class="post-title">
       {{#link-to 'post' post.category post.id}}{{post.title}}{{/link-to}}
+      {{#if post.allowComments}}
       <small class="post-comments-count">{{disqus-comment-count identifier=post.id}}</small>
+      {{/if}}
     </h1>
   <div class="post-date">
     {{#if session.isAuthenticated}}
@@ -13,7 +15,7 @@
 <div class="content">
   {{{post.content}}}
 </div>
-{{#if showComments}}
+{{#if post.allowComments}}
   {{disqus-comments identifier=post.id}}
 {{/if}}
 {{yield}}
