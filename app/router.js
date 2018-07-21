@@ -11,9 +11,9 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('post', { path: '/post/:post_id' });
   });
-  this.route('post', { path: '/post/:post_id' });
-  this.route('contact');
-  this.route('error', { path: '/*path' });
+  this.route('category', { path: '/:category' });
+  this.route('post', { path: '/:category/:post_id' });
+  this.route('error');
 });
 
 export default Router;

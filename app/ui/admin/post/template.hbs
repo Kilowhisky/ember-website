@@ -4,6 +4,9 @@
       {{input class="input is-large" placeholder="Post Title" value=model.post.title required=true}}
     </header>
     <div class="content">
+      {{input class="input" placeholder="Category used for menu item generation. Ex. 'Blog', 'Contact', 'Projects'" value=model.post.category required=true }}
+    </div>
+    <div class="content">
       {{input class="input" placeholder="Unique URL slug (used as identifier)" value=model.post.id required=true}}
     </div>
     <div class="content">

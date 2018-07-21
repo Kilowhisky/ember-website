@@ -1,12 +1,11 @@
 {{#site-header}}
   <nav id="banner-tabs" class="tabs">
     <ul>
+      {{#each model as |category|}}
       <li>
-        {{#link-to 'index'}}Blog{{/link-to}}
+          {{#link-to 'category' category}}{{category}}{{/link-to}}
       </li>
-      <li>
-        {{#link-to 'contact'}}Contact{{/link-to}}
-      </li>
+      {{/each}}
       {{#if session.isAuthenticated}}
         <li>
           {{#link-to 'admin.post' 'new'}}New Post{{/link-to}}

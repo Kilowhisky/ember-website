@@ -1,6 +1,6 @@
 <header>
   <h1 class="post-title">
-      {{#link-to 'post' post}}{{post.title}}{{/link-to}}
+      {{#link-to 'post' post.category post.id}}{{post.title}}{{/link-to}}
       <small class="post-comments-count">{{disqus-comment-count identifier=post.id}}</small>
     </h1>
   <div class="post-date">

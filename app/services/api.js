@@ -20,6 +20,10 @@ export default AjaxService.extend({
     return {};
   }),
 
+  getPostCategories(){
+    return this.request('posts/categories');
+  },
+
   createLocalPost(args = {}) {
     return merge({
       createdAt: new Date()

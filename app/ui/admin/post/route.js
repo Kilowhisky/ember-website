@@ -17,19 +17,25 @@ export default Route.extend({
     const isNew = params.post_id == 'new';
     return hash({
       isNew,
-      post: isNew ? this.api.createLocalPost({ category: 'blog' }) : this.api.getPost(params.post_id)
+      post: isNew ? this.api.createLocalPost() : this.api.getPost(params.post_id)
     });
   },
   actions: {
     save(model) {
       this.api.savePost(model.post, model.isNew)
-        .then(p => this.transitionTo('post', p))
+        .then(p => {
+          this.send('reloadCategories');
+          this.transitionTo('post', p.category, p.id);
+        })
         .catch(e => this.notifications.error(e.message));
     },
     delete(model) {
       if (confirm('Are you sure?')) {
         this.api.deletePost(model.post.id)
-          .then(() => this.transitionTo('index'));
+          .then(() => {
+            this.send('reloadCategories');
+            this.transitionTo('index');
+          });
       }
     }
   }
