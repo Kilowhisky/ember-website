@@ -16,6 +16,8 @@
   {{{post.content}}}
 </div>
 {{#if post.allowComments}}
-  {{disqus-comments identifier=post.id}}
+  {{#if showComments}}
+    {{disqus-comments identifier=post.id}}
+  {{/if}}
 {{/if}}
 {{yield}}
