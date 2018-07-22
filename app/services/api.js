@@ -4,6 +4,7 @@ import { merge } from '@ember/polyfills';
 import config from 'website/config/environment';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import { A } from '@ember/array';
 
 
 export default AjaxService.extend({
@@ -33,7 +34,7 @@ export default AjaxService.extend({
 
   getPosts(params) {
     return this.request('posts', { data: params })
-      .then(x => x.map(this.convertPost));
+      .then(x => A(x.map(this.convertPost)));
   },
 
   getPost(id) {
