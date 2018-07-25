@@ -24,7 +24,9 @@ module('Unit | Initializer | inject-session', function(hooks) {
 
   // Replace this with your real tests.
   test('it works', async function(assert) {
-    await this.application.boot();
+    run(async () => {
+      await this.application.boot();
+    });
 
     assert.ok(true);
   });

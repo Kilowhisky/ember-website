@@ -15,12 +15,8 @@ module('Integration | Component | loading-spinner', function(hooks) {
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
-    await render(hbs`
-      {{#loading-spinner}}
-        template block text
-      {{/loading-spinner}}
-    `);
+    await render(hbs`{{loading-spinner}}`);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element.querySelector('.loading-spinner'), 'spinner exists');
   });
 });

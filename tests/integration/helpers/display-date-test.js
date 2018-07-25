@@ -7,11 +7,12 @@ module('Integration | Helper | display-date', function(hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
-  test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+  test('converts to locale string', async function(assert) {
+    const date = new Date()
+    this.set('date', date);
 
-    await render(hbs`{{display-date inputValue}}`);
+    await render(hbs`{{display-date date}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent.trim(), date.toLocaleDateString());
   });
 });
