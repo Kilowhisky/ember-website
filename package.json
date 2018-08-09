@@ -12,7 +12,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "build-produciton" "ember build --prod"
+    "build-produciton": "ember build --prod",
     "lint:js": "eslint .",
     "start": "ember serve --proxy http://127.0.0.1:5000",
     "test": "ember test"
