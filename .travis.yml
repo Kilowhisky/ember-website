@@ -1,4 +1,3 @@
----
 language: node_js
 node_js:
   - "6"
@@ -8,13 +7,13 @@ dist: trusty
 
 addons:
   chrome: stable
+  ssh_known_hosts: wetzelrice.com
 
 cache:
   yarn: true
 
 env:
   global:
-    # See https://git.io/vdao3 for details.
     - JOBS=1
 
 before_install:
@@ -27,3 +26,18 @@ install:
 script:
   - yarn lint:js
   - yarn test
+
+before_deploy:
+  - openssl aes-256-cbc -K $encrypted_82e09b39369f_key -iv $encrypted_82e09b39369f_iv
+    -in deploy-key.enc -out deploy-key -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 deploy-key
+  - ssh-add deploy-key
+  - yarn build-produciton
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: rsync -r --delete-after $TRAVIS_BUILD_DIR/dist/ deploy@wetzelrice.com:/srv/webservices/wetzelrice.com/www/wwwroot
+  on:
+    branch: release
