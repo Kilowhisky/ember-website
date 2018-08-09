@@ -33,12 +33,11 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 deploy-key
   - ssh-add deploy-key
+  - yarn build-produciton
 
 deploy:
   provider: script
   skip_cleanup: true
-  script:
-    - yarn build-produciton
-    - rsync -r --delete-after $TRAVIS_BUILD_DIR/dist deploy@wetzelrice.com:/srv/webservices/wetzelrice.com/www/wwwroot
+  script: rsync -r --delete-after $TRAVIS_BUILD_DIR/dist deploy@wetzelrice.com:/srv/webservices/wetzelrice.com/www/wwwroot
   on:
     branch: release
