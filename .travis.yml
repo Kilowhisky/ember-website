@@ -37,6 +37,8 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quite $TRAVIS_BUILD_DIR/dist deploy@wetzelrice.com:/srv/webservices/wetzelrice.com/www/wwwroot
+  script:
+    - yarn build-produciton
+    - rsync -r --delete-after $TRAVIS_BUILD_DIR/dist deploy@wetzelrice.com:/srv/webservices/wetzelrice.com/www/wwwroot
   on:
     branch: release
