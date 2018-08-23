@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
+import { dasherize } from '@ember/string';
 
 
 export default Route.extend({
@@ -17,7 +18,24 @@ export default Route.extend({
     const isNew = params.post_id == 'new';
     return hash({
       isNew,
-      post: isNew ? this.api.createLocalPost() : this.api.getPost(params.post_id)
+      post: isNew ? this.api.createLocalPost() : this.api.getPost(params.post_id),
+      editorOptions: {
+        plugins: "code codesample textcolor colorpicker link",
+        codesample_languages: [
+          { text: 'HTML/XML', value: 'markup' },
+          { text: 'JavaScript', value: 'javascript' },
+          { text: 'CSS', value: 'css' },
+          { text: 'PHP', value: 'php' },
+          { text: 'Ruby', value: 'ruby' },
+          { text: 'Python', value: 'python' },
+          { text: 'Java', value: 'java' },
+          { text: 'C', value: 'c' },
+          { text: 'C#', value: 'csharp' },
+          { text: 'C++', value: 'cpp' }
+        ],
+        toolbar1: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright | link image',
+        toolbar2: 'code codesample forecolor backcolor link'
+      }
     });
   },
   actions: {
@@ -37,6 +55,9 @@ export default Route.extend({
             this.transitionTo('index');
           });
       }
+    },
+    updateSlug(model) {
+      model.post.set('id', dasherize(model.post.title));
     }
   }
 });

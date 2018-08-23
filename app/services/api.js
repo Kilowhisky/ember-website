@@ -21,15 +21,15 @@ export default AjaxService.extend({
     return {};
   }),
 
-  getPostCategories(){
+  getPostCategories() {
     return this.request('posts/categories');
   },
 
   createLocalPost(args = {}) {
-    return merge({
+    return EmberObject.create(merge({
       createdAt: new Date(),
       allowComments: true
-    }, args);
+    }, args));
   },
 
   getPosts(params) {
