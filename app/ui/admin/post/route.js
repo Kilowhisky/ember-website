@@ -20,6 +20,7 @@ export default Route.extend({
       isNew,
       post: isNew ? this.api.createLocalPost() : this.api.getPost(params.post_id),
       editorOptions: {
+        height : 500,
         plugins: "code codesample textcolor colorpicker link",
         codesample_languages: [
           { text: 'HTML/XML', value: 'markup' },
